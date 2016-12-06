@@ -298,7 +298,8 @@
         <module>components/org.wso2.carbon.identity.meta.claim.mgt</module>
         <module>components/org.wso2.carbon.identity.mgt.login.module</module>
         <module>components/org.wso2.carbon.identity.mgt.login.interceptor</module>
-        <module>feature</module>
+        <module>feature/org.wso2.carbon.identity.mgt.feature</module>
+        <module>feature/org.wso2.carbon.identity.mgt.login.feature</module>
         <module>tests</module>
     </modules>
 
