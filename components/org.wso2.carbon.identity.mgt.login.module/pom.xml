@@ -28,9 +28,9 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>org.wso2.carbon.identity.mgt</artifactId>
+    <artifactId>org.wso2.carbon.identity.mgt.login.module</artifactId>
     <packaging>bundle</packaging>
-    <name>WSO2 Carbon Identity Management - OSGi Bundle</name>
+    <name>WSO2 Carbon Identity Management - Login Module</name>
 
     <build>
         <extensions>
@@ -47,15 +47,6 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
@@ -75,84 +66,41 @@
             <artifactId>org.eclipse.osgi.services</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.caching</groupId>
-            <artifactId>org.wso2.carbon.caching</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.wso2.carbon.security.caas</groupId>
             <artifactId>org.wso2.carbon.security.caas</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.wso2.orbit.org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
+            <groupId>org.wso2.carbon.identity.mgt</groupId>
+            <artifactId>org.wso2.carbon.identity.mgt</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.datasources</groupId>
-            <artifactId>org.wso2.carbon.datasource.core</artifactId>
-        </dependency>
-        <!-- Dependencies for unit tests -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-api-mockito</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-module-testng</artifactId>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <properties>
-        <private.package>org.wso2.carbon.identity.mgt.internal</private.package>
+        <private.package>org.wso2.carbon.identity.mgt.login.module.internal</private.package>
         <export.package>
-            !org.wso2.carbon.identity.mgt.internal,
-            org.wso2.carbon.identity.mgt.*;version="${project.version}"
+            !org.wso2.carbon.identity.mgt.login.module.internal,
+            org.wso2.carbon.identity.mgt.login.module.*;version="${project.version}"
         </export.package>
         <import.package>
             org.osgi.framework.*;version="${osgi.framework.package.import.version.range}",
             org.osgi.service.permissionadmin.*;version="${org.osgi.service.permissionadmin.import.version.range}",
             org.slf4j.*;version="${slf4j.logging.package.import.version.range}",
             javax.security.auth.*,
-            com.nimbusds.jose.*;version="${com.nimbusds.package.import.version.range}",
-            org.wso2.carbon.context.api.*;version="${org.wso2.carbon.context.import.version.range}",
-            org.yaml.snakeyaml.*;version="${org.snakeyaml.package.import.version.range}",
-            javax.sql.*,
-            javax.naming.*,
-            javax.xml.*,
             javax.cache.*,
             org.osgi.service.component.annotations.*;version="${org.osgi.service.component.annotations.version.range}",
-            net.minidev.asm.*;version="${asm.package.version.range}",
-            org.wso2.carbon.kernel.*,
             org.wso2.carbon.messaging.*,
             org.wso2.carbon.caching.*,
             org.wso2.carbon.security.caas.user.core.store.*,
             org.wso2.carbon.security.caas.user.core.bean.*,
             org.wso2.carbon.security.caas.user.core.exception.*,
-            org.wso2.carbon.datasource.core.*;version="${org.wso2.carbon.datasource.version.range}",
+            org.wso2.carbon.identity.mgt.*,
         </import.package>
 
-        <carbon.component>
-            startup.listener;
-            componentName="wso2-carbon-identity-mgt";
-            requiredService="
-            org.wso2.carbon.identity.mgt.store.connector.CredentialStoreConnectorFactory,
-            org.wso2.carbon.identity.mgt.store.connector.IdentityStoreConnectorFactory"
-        </carbon.component>
 
         <dsannotations>*</dsannotations>
         <dynamic.import.package>*</dynamic.import.package>

@@ -260,7 +260,6 @@
             <dependency>
                 <groupId>org.wso2.carbon.messaging</groupId>
                 <artifactId>org.wso2.carbon.messaging</artifactId>
-                <scope>test</scope>
                 <version>${org.wso2.carbon.messaging.version}</version>
             </dependency>
             <dependency>
@@ -297,6 +296,8 @@
     <modules>
         <module>components/org.wso2.carbon.identity.mgt</module>
         <module>components/org.wso2.carbon.identity.meta.claim.mgt</module>
+        <module>components/org.wso2.carbon.identity.mgt.login.module</module>
+        <module>components/org.wso2.carbon.identity.mgt.login.interceptor</module>
         <module>feature</module>
         <module>tests</module>
     </modules>

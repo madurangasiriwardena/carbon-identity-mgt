@@ -40,6 +40,16 @@
             <artifactId>org.wso2.carbon.identity.mgt</artifactId>
             <version>${carbon.identity.mgt.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.identity.mgt</groupId>
+            <artifactId>org.wso2.carbon.identity.mgt.login.module</artifactId>
+            <version>${carbon.identity.mgt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.identity.mgt</groupId>
+            <artifactId>org.wso2.carbon.identity.mgt.login.interceptor</artifactId>
+            <version>${carbon.identity.mgt.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -106,6 +116,14 @@
                             <bundles>
                                 <bundle>
                                     <symbolicName>org.wso2.carbon.identity.mgt</symbolicName>
+                                    <version>${carbon.identity.mgt.version}</version>
+                                </bundle>
+                                <bundle>
+                                    <symbolicName>org.wso2.carbon.identity.mgt.login.module</symbolicName>
+                                    <version>${carbon.identity.mgt.version}</version>
+                                </bundle>
+                                <bundle>
+                                    <symbolicName>org.wso2.carbon.identity.mgt.login.interceptor</symbolicName>
                                     <version>${carbon.identity.mgt.version}</version>
                                 </bundle>
                             </bundles>
